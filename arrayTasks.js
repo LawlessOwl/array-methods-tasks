@@ -96,24 +96,51 @@ const names = ['John', 'Mary', 'Peter', 'Alice'];
 
 
 //Преобразуй массив объектов {name, age} в массив имён.
+const namesArray = users.map(user => user.name)
+console.log(namesArray)
 
 //Получи средний возраст из массива пользователей.
+const averageUserAge = users.reduce((sum, user) => sum + user.age, 0) / users.length
+console.log(averageUserAge)
 
 //Отсортируй массив строк по алфавиту.
+const sortedStringsArray = [...arrayOfStrings].sort((a, b) => a.localeCompare(b, "en", {sensitivity: "base"}))
+console.log(sortedStringsArray)
+console.log(arrayOfStrings)
 
 //Отсортируй массив объектов по полю price по убыванию.
+const sortedPriceArray = [...products].sort((a, b) => b.price - a.price)
+console.log(sortedPriceArray)
+console.log(products)
 
 //Создай массив, содержащий только уникальные значения из исходного.
+const onlyUniqArray = withDuplicates.filter((el, id, array) => array.indexOf(el) === id)
+console.log(onlyUniqArray)
+console.log(withDuplicates)
 
 //Используя flat, расплющи массив на два уровня.
+const notANestedArray = nested2.flat(2)
+console.log(notANestedArray)
+console.log(nested2)
 
 //Преобразуй массив строк в массив их длин.
+const arrayOfStringsLength = names.map((el) => el.length)
+console.log(arrayOfStringsLength)
+console.log(names)
 
 //Разверни массив наоборот, не меняя оригинал.
+const reversedArray = [...names].reverse()
+console.log(reversedArray)
+console.log(names)
 
 //Замени все отрицательные числа на 0 с помощью map.
+const arrayWithoutNegativeNumbers = mixedNumbers.map((el) => el < 0 ? 0 : el)
+console.log(arrayWithoutNegativeNumbers)
+console.log(mixedNumbers)
 
 //Сгенерируй массив длиной 10, заполненный значением "A".
+const tenAArray = Array(10).fill("A")
+console.log(tenAArray)
 
 //Используй reduce для подсчёта количества каждого символа в строке.
 
