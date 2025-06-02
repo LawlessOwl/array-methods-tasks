@@ -166,8 +166,17 @@ const lastIndexOfRequestedValue = mixedNumbers.findLastIndex(value => value === 
 console.log(lastIndexOfRequestedValue)
 
 //Используй some, чтобы проверить наличие строки длиной больше 5.
+const isStringLengthMoreThanFive = arrayOfStrings.some(element => element.length > 5)
+console.log(isStringLengthMoreThanFive)
 
 //Используй every, чтобы проверить, являются ли все элементы числами.
+const isEveryElementIsNum = (array) => {
+  const result = array.every(el => typeof el === "number")
+  console.log(result)
+}
+
+isEveryElementIsNum(arrayOfStrings)
+isEveryElementIsNum(numbers)
 
 //Преобразуй массив чисел в объект, где ключи — числа, а значения — их квадраты.
 
