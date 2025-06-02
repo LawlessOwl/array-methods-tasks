@@ -91,6 +91,7 @@ const objectsWithId = [
   { id: 2, name: "B" },
   { id: 1, name: "C" }
 ];
+const nestedStrings = [['orange', 'banana'], ['apple', 'pear']]
 
 const names = ['John', 'Mary', 'Peter', 'Alice'];
 
@@ -143,12 +144,26 @@ const tenAArray = Array(10).fill("A")
 console.log(tenAArray)
 
 //Используй reduce для подсчёта количества каждого символа в строке.
+const allCharsCount = arrayOfStrings.join('').split('').reduce((acc, char) => {
+  acc[char] = (acc[char] || 0) + 1
+  return acc
+}, {})
+
+console.log(allCharsCount)
 
 //Удали дубликаты из массива с помощью filter и indexOf.
+const arrayWithoutDuplicates = withDuplicates.filter((elem, id, array) => array.indexOf(elem) === id)
+console.log(arrayWithoutDuplicates)
+console.log(withDuplicates)
 
 //Используя flatMap, раздели каждую строку на символы и получи один массив всех символов.
+const symbolsFromNestedArray = nestedStrings.flatMap(array => array)
+.flatMap((string) => string.split(''))
+console.log(symbolsFromNestedArray)
 
 //Найди индекс последнего элемента, равного заданному значению.
+const lastIndexOfRequestedValue = mixedNumbers.findLastIndex(value => value === 10)
+console.log(lastIndexOfRequestedValue)
 
 //Используй some, чтобы проверить наличие строки длиной больше 5.
 
