@@ -179,12 +179,46 @@ isEveryElementIsNum(arrayOfStrings)
 isEveryElementIsNum(numbers)
 
 //Преобразуй массив чисел в объект, где ключи — числа, а значения — их квадраты.
+const numbersSqrtObj = numbers.reduce((acc, val) => {
+  acc[val] = Math.sqrt(val)
+  return acc
+}, {})
+
+console.log(numbersSqrtObj)
 
 //Найди второй по величине элемент в массиве.
+const secondLargestElement = (arr) => {
+  let result
+    if (arr.every((val) => typeof val === "string")) {
+    const sortedStr = [...arr].sort((a, b) => b.localeCompare(a))
+    result = sortedStr[1]
+    } else if (arr.every((val) => typeof val === "number")) {
+    const withoutNegative = arr.filter((val) => val > 0)
+    const sortedNum = [...withoutNegative].sort((a, b) => b - a)
+    result = sortedNum[1]
+  }
+  console.log(result)
+}
+
+secondLargestElement(names)
+secondLargestElement(numbers)
 
 //Раздели массив на подмассивы по 3 элемента каждый.
+const arraySlicer = (arr, subarrayLength = 3) => {
+  const result = []
+  for (let i = 0; i < arr.length; i += subarrayLength) {
+    result.push(arr.slice(i, i + subarrayLength))
+  }
+  return result
+}
+
+arrayOfStrings.push("whale", "crocodile")
+const subarrays = arraySlicer(arrayOfStrings)
+console.log(subarrays)
 
 //Создай массив пар [значение, индекс] с помощью map.
+const keyValueArray = arrayOfStrings.map((val, id) => [val, id])
+console.log(keyValueArray)
 
 //-----------------------------------------------------------------------------------------
 
