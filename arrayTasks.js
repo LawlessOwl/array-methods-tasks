@@ -265,12 +265,44 @@ const complex = [
 ];
 
 const words = ['the', 'quick', 'brown', 'fox'];
+
 const nestedWords = [['apple', 'banana'], ['banana', 'cherry'], ['apple']];
 
 
 //Сгруппируй массив объектов по значению свойства (например, по category).
+const arrayFromRequestedProperty = (array, property) => {
+  return array.reduce((acc, item) => {
+    const key = item[property]
+    if(!acc[key]) {
+      acc[key] = []
+    }
+    acc[key].push(item)
+    return acc
+  }, {})
+};
 
-//Создай объект частотности значений массива ({значение: количество}).
+const propArray = arrayFromRequestedProperty(posts, "tags")
+console.log(propArray)
+
+//Создай объект частотности значений массива ({значение: количество}). 
+
+const getFreq = (arr) => {
+  const withoutNegative = arr.filter((val) => val > 0)
+
+  const result =  withoutNegative.reduce((acc, val) => {
+    acc[val] = (acc[val] || 0) + 1
+    return acc
+  }, {})
+
+  Object.keys(result).forEach(key => {
+    result[key] = result[key] / withoutNegative.length
+  })
+
+  return result
+}
+
+const frequency = getFreq(numbers)
+console.log(frequency)
 
 //Извлеки все уникальные значения tag из массива объектов {name, tags: [...]}.
 
