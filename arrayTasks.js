@@ -305,8 +305,23 @@ const frequency = getFreq(numbers)
 console.log(frequency)
 
 //Извлеки все уникальные значения tag из массива объектов {name, tags: [...]}.
+const extractUniqueValue = (arr, key) => {
+ return arr.flatMap(obj => obj[key]).filter((elem, id, arr) => {
+    return arr.indexOf(elem) === id
+  })
+} 
+
+const uniqueValue = extractUniqueValue(posts, "tags")
+console.log(uniqueValue)
 
 //Преобразуй двумерный массив в объект вида {rowIndex: [значения]}.
+const matrixObj = matrix.reduce((acc, val, id) => {
+  acc[`rowIndex${id}`] = val 
+  return acc
+}, {})
+
+console.log(matrixObj)
+console.log(matrix)
 
 //Найди наибольшую возрастающую подпоследовательность.
 
